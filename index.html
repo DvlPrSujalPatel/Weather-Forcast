@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.min.css">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Weather App</h1>
+      <div class="input-container">
+        <input type="text" id="city-input" placeholder="Enter city name" />
+        <button id="get-weather-btn" class="btn primary">Get Weather</button>
+      </div>
+      <div id="weather-info" class="hidden">
+        <h2 id="city-name"></h2>
+        <div id="weather-icon">
+          <i class="wi wi-day-sunny"></i>
+        </div>
+        <p id="temperature"></p>
+        <p id="description"></p>
+        <p id="wind-speed">
+          <i class="wi wi-strong-wind"></i>
+          <span id="wind-speed-value"></span>
+        </p>
+      </div>
+      <div id="forecast" class="hidden">
+        <h3>5-Day Forecast</h3>
+        <div id="forecast-container"></div>
+      </div>
+      <p id="error-message" class="hidden">City not found. Please try again.</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

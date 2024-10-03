@@ -1,0 +1,290 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideInFromRight {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #7045af, #e14594);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: #FFFFFF;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body::before {
+    content: 'WEATHCAST';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15vw;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.1);
+    white-space: nowrap;
+    z-index: -1;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    animation: fadeIn 0.8s ease-out;
+    z-index: 1;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #FFF;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    animation: scaleIn 0.5s ease-out 0.3s both;
+}
+
+.input-container {
+    display: flex;
+    margin-bottom: 20px;
+    animation: slideInFromRight 0.5s ease-out 0.5s both;
+}
+
+input[type="text"] {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px 0 0 25px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    transition: background-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn.primary {
+    background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%);
+    color: white;
+}
+
+.btn.primary:hover {
+    background: linear-gradient(135deg, #005bea 0%, #00c6fb 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#get-weather-btn {
+    border-radius: 0 25px 25px 0;
+}
+
+#weather-info {
+    text-align: center;
+    margin-top: 30px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+#city-name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    animation: scaleIn 0.5s ease-out;
+}
+
+#weather-icon i {
+    font-size: 64px;
+    margin: 20px 0;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    animation: pulse 2s infinite;
+}
+
+#temperature {
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    animation: scaleIn 0.5s ease-out 0.2s both;
+}
+
+#description {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    animation: fadeIn 0.5s ease-out 0.4s both;
+}
+
+#wind-speed {
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.5s ease-out 0.6s both;
+}
+
+#wind-speed i {
+    margin-right: 10px;
+    color: #90CAF9;
+}
+
+#forecast {
+    margin-top: 30px;
+    animation: fadeIn 0.8s ease-out 0.8s both;
+}
+
+#forecast h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+#forecast-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.forecast-item {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    text-align: center;
+    flex-basis: calc(20% - 8px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.forecast-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.forecast-item .wi {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #FFD700;
+}
+
+.hidden {
+    display: none;
+}
+
+#error-message {
+    color: #FF5252;
+    text-align: center;
+    margin-top: 20px;
+    background-color: rgba(255, 82, 82, 0.1);
+    padding: 10px;
+    border-radius: 10px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .input-container {
+        flex-direction: column;
+    }
+
+    input[type="text"], #get-weather-btn {
+        border-radius: 25px;
+        margin-bottom: 10px;
+    }
+
+    .forecast-item {
+        flex-basis: calc(50% - 5px);
+    }
+}
+
+/* Add these styles to your existing CSS */
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#weather-info, #forecast {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#city-name, #temperature, #description, #wind-speed, #weather-icon, .forecast-item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Ensure hidden elements are truly hidden */
+.hidden {
+    display: none !important;
+}
+
+/* ... rest of your existing styles ... */
