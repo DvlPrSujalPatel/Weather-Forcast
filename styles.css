@@ -242,6 +242,9 @@ input[type="text"]:focus {
 @media (max-width: 480px) {
     .container {
         padding: 20px;
+        max-width: 100%;
+        margin: 10px;
+        border-radius: 10px;
     }
 
     h1 {
@@ -255,10 +258,31 @@ input[type="text"]:focus {
     input[type="text"], #get-weather-btn {
         border-radius: 25px;
         margin-bottom: 10px;
+        width: 100%;
+    }
+
+    #get-weather-btn {
+        padding: 12px 20px;
+    }
+
+    #weather-icon i {
+        font-size: 48px;
+    }
+
+    #temperature {
+        font-size: 36px;
+    }
+
+    #description {
+        font-size: 16px;
     }
 
     .forecast-item {
         flex-basis: calc(50% - 5px);
+    }
+
+    body::before {
+        font-size: 20vw;
     }
 }
 
